@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <form action={% url 'secondpage' %}  method="POST">
+
+            {% csrf_token %} 
+
+            <label for="start"> From Date: </label> 
+            <input type="date" name="start_date" placeholder="dd-mm-yyyy" value=""> 
+            <label for="end"> End Date: </label> 
+            <input type="date" name="end_date" placeholder="dd-mm-yyyy" value=""><br><br>
+
+            {% for option in options %}
+            
+                <input type="checkbox" name="lead_options" id="{{option.id}}" value={{option.fields}} />
+                <label for="{{option.id}}"><b>{{option.fields}}</b></label><br />
+
+            {% endfor %}
+
+        <br><br><input type="submit" value="Submit">
+
+    </form>
+    
+    </body>
+</html>
