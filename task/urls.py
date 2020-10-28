@@ -1,7 +1,9 @@
 from django.urls import path
-from . import views
+from task.views import home,secondpage,snippet_detail
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('secondpage', views.secondpage, name='secondpage'),
+    path('', home, name='home'),
+    path('snippets/<str:name>', snippet_detail),
+    path('secondpage', secondpage, name='secondpage'),
+   
 ]
